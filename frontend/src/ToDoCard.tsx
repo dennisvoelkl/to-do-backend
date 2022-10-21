@@ -19,7 +19,7 @@ export default function ToDoCard(props: singleToDo) {
                 <h1>{props.singleToDo.description}</h1>
                 <p>{props.singleToDo.status}</p>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => props.deleteTodo(props.singleToDo.id)}>Delete</button>
                 </section>
         </div>
     );

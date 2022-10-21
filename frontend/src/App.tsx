@@ -2,6 +2,8 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
 import ToDoGallery from "./ToDoGallery";
+import {ToDo} from "./ToDo";
+import ToDoGalleryOverview from './ToDoGalleryOverview';
 
 function App() {
     const [description, setPostDiscription] = useState<{}>("AnfangsPOST")
@@ -65,11 +67,11 @@ function App() {
         <div className="App">
             <header className="App-header">
 
-          <div>
-            <ToDoGallery toDoList={toDoList}/>
-            <button onClick={getPostToController} >add ToDo</button>
-            <input type="text" onChange={handleChange} />
-          </div>
+                <div>
+                    <ToDoGalleryOverview todos={toDoList} deleteTodo={deletePostToController} advance={advanceTodo} />
+                    <button onClick={getPostToController}>add ToDo</button>
+                    <input type="text" onChange={handleChange}/>
+                </div>
 
             </header>
         </div>
