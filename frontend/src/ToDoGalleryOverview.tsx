@@ -1,5 +1,4 @@
 import {ToDo} from "./ToDo";
-import Board from "./ToDoGallery";
 import ToDoGallery from "./ToDoGallery";
 import './ToDoGalleryOverwie.css';
 

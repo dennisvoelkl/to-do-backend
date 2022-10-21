@@ -1,7 +1,6 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
-import ToDoGallery from "./ToDoGallery";
 import {ToDo} from "./ToDo";
 import ToDoGalleryOverview from './ToDoGalleryOverview';
 
@@ -24,7 +23,6 @@ function App() {
     };
 
     const baseUrl = '/api/todo/'
-    const putUrl = '/update'
 
     const getPostToController = () => {
         axios.post(baseUrl, {description: description, status: 'OPEN'})
