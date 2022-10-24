@@ -21,7 +21,7 @@ function App() {
         setPostDiscription(event.target.value);
         console.log('value is:', event.target.value);
         getAllTodos();
-        setPostDiscription('')
+
     };
 
     const baseUrl = '/api/todo/'
