@@ -22,7 +22,8 @@ function ToDoGallery(props: toDoGalleryProps) {
                         singleToDo={singleToDo}
                         deleteTodo={props.deleteTodo}
                         advance={props.advance}
-                        advanceReverse={props.advanceReverse}/>)}
+                        advanceReverse={props.advanceReverse}
+                        />)}
             </section>
             {/*<section className="galleryInProgress">*/}
             {/*    <h1></h1>*/}

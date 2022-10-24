@@ -21,6 +21,7 @@ function App() {
         setPostDiscription(event.target.value);
         console.log('value is:', event.target.value);
         getAllTodos();
+        setPostDiscription('')
     };
 
     const baseUrl = '/api/todo/'
@@ -32,7 +33,8 @@ function App() {
         event.preventDefault()
         axios.post(baseUrl, {description: description, status: 'OPEN'})
             .then(getAllTodos)
-        setPostDiscription('TESTTESTTEST')
+        console.log(description)
+        setPostDiscription('')
         console.log(description)
     }
 
