@@ -1,7 +1,27 @@
-div
+.layout
 {
- justify-content: flex-start;
- margin: 20px 20px 20px 20px;
+ justify-content: center;
+ margin: 30px 10px 10px 10px;
+ color: cornflowerblue;
+ background-color: #282c34;
+ border-radius: 10px;
  display: flex;
  flex-wrap: wrap;
 }
+
+.ueberschrift1{
+ color: lightgray;
+ font-family: "Helvetica Neue";
+ font-size: 2rem;
+}
+.ueberschrift2{
+ color: darkgray;
+ font-family: "Helvetica Neue";
+ font-size: 2rem;
+}
+.ueberschrift3{
+ color: gray;
+ font-family: "Helvetica Neue";
+ font-size: 2rem;
+}
+

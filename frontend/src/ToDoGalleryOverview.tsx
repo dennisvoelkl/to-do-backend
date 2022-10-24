@@ -16,15 +16,15 @@ export default function BoardOverview(props: BoardOverviewProps) {
     const doneTodos: ToDo[] = props.todos.filter((currentTodo) => currentTodo.status === "DONE")
 
     return (
-        <div>
-            <h1>OPEN
+        <div className="layout">
+            <h1 className="ueberschrift1">OPEN
                 <ToDoGallery title={"Open"} toDoList={openTodos} advance={props.advance} deleteTodo={props.deleteTodo}/>
             </h1>
-            <h1>DOING
+            <h1 className="ueberschrift2">DOING
                 <ToDoGallery title={"In Progress"} toDoList={inProgressTodos} advance={props.advance}
                              deleteTodo={props.deleteTodo}/>
             </h1>
-            <h1>DONE
+            <h1 className="ueberschrift3">DONE
                 <ToDoGallery title={"Done"} toDoList={doneTodos} advance={props.advance} deleteTodo={props.deleteTodo}/>
             </h1>
             </div>
