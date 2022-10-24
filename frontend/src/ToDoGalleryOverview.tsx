@@ -6,7 +6,8 @@ import './ToDoGalleryOverwie.css';
 type BoardOverviewProps = {
     todos: ToDo[],
     advance: (todo: ToDo) => void,
-    deleteTodo: (id: string) => void
+    deleteTodo: (id: string) => void,
+    advanceReverse: (todo: ToDo) => void,
 }
 
 export default function BoardOverview(props: BoardOverviewProps) {
@@ -18,15 +19,29 @@ export default function BoardOverview(props: BoardOverviewProps) {
     return (
         <div className="layout">
             <h1 className="ueberschrift1">OPEN
-                <ToDoGallery title={"Open"} toDoList={openTodos} advance={props.advance} deleteTodo={props.deleteTodo}/>
+                <ToDoGallery
+                    title={"Open"}
+                    toDoList={openTodos}
+                    advance={props.advance}
+                    deleteTodo={props.deleteTodo}
+                    advanceReverse={props.advanceReverse}/>
             </h1>
             <h1 className="ueberschrift2">DOING
-                <ToDoGallery title={"In Progress"} toDoList={inProgressTodos} advance={props.advance}
-                             deleteTodo={props.deleteTodo}/>
+                <ToDoGallery
+                    title={"In Progress"}
+                    toDoList={inProgressTodos}
+                    advance={props.advance}
+                    deleteTodo={props.deleteTodo}
+                    advanceReverse={props.advanceReverse}/>
             </h1>
             <h1 className="ueberschrift3">DONE
-                <ToDoGallery title={"Done"} toDoList={doneTodos} advance={props.advance} deleteTodo={props.deleteTodo}/>
+                <ToDoGallery
+                    title={"Done"}
+                    toDoList={doneTodos}
+                    advance={props.advance}
+                    deleteTodo={props.deleteTodo}
+                    advanceReverse={props.advanceReverse}/>
             </h1>
-            </div>
-)
+        </div>
+    )
 }

@@ -5,7 +5,7 @@ import {ToDo} from "./ToDo";
 import ToDoGalleryOverview from './ToDoGalleryOverview';
 
 function App() {
-    const [description, setPostDiscription] = useState<{}>("AnfangsPOST")
+    const [description, setPostDiscription] = useState<{}>()
     const [toDoList, setToDoList] = useState<[]>([])
 
     useEffect(() => {
@@ -20,6 +20,7 @@ function App() {
     const handleChange = (event: any) => {
         setPostDiscription(event.target.value);
         console.log('value is:', event.target.value);
+        getAllTodos();
     };
 
     const baseUrl = '/api/todo/'
@@ -27,9 +28,11 @@ function App() {
     const getPostToController = (
         event: FormEvent<HTMLFormElement>
     ) => {
+        console.log("ICH BIN HIER")
         event.preventDefault()
         axios.post(baseUrl, {description: description, status: 'OPEN'})
             .then(getAllTodos)
+        setPostDiscription('TESTTESTTEST')
         console.log(description)
     }
 
@@ -56,11 +59,28 @@ function App() {
             .then(getAllTodos)
     }
 
+    const advanceReverseTodo = (todo: ToDo) => {
+        const updatedTodo = {
+            id: todo.id,
+            description: todo.description,
+            status: getPreviouStatus(todo.status)
+        }
+        axios.put(`/api/todo/${todo.id}`, updatedTodo)
+            .then(getAllTodos)
+    }
+
     const getNextStatus = (status: string) => {
         if (status === "OPEN"){
             return "IN_PROGRESS"
         }
             return "DONE"
+    }
+
+    const getPreviouStatus = (status: string) => {
+        if (status === "DONE"){
+            return "IN_PROGRESS"
+        }
+        return "OPEN"
     }
 
 
@@ -69,11 +89,15 @@ function App() {
             <header className="App-header">
 
                 <div>
-                    <ToDoGalleryOverview todos={toDoList} deleteTodo={deletePostToController} advance={advanceTodo} />
+                    <ToDoGalleryOverview
+                        todos={toDoList}
+                        deleteTodo={deletePostToController}
+                        advance={advanceTodo}
+                        advanceReverse={advanceReverseTodo} />
 
                     <form onSubmit={getPostToController}>
-                    <button>add Task</button>
-                    <input type="text" onChange={handleChange}/>
+                        <button>add Task</button>
+                        <input type="text" onChange={handleChange}/>
                     </form>
 
                 </div>
