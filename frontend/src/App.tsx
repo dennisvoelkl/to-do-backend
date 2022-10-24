@@ -67,8 +67,12 @@ function App() {
 
                 <div>
                     <ToDoGalleryOverview todos={toDoList} deleteTodo={deletePostToController} advance={advanceTodo} />
+
+                    <form>
                     <button onClick={getPostToController}>add ToDo</button>
                     <input type="text" onChange={handleChange}/>
+                    </form>
+
                 </div>
 
             </header>
