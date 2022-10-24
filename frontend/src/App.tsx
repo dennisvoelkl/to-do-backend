@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
 import {ToDo} from "./ToDo";
@@ -24,7 +24,10 @@ function App() {
 
     const baseUrl = '/api/todo/'
 
-    const getPostToController = () => {
+    const getPostToController = (
+        event: FormEvent<HTMLFormElement>
+    ) => {
+        event.preventDefault()
         axios.post(baseUrl, {description: description, status: 'OPEN'})
             .then(getAllTodos)
         console.log(description)
@@ -68,8 +71,8 @@ function App() {
                 <div>
                     <ToDoGalleryOverview todos={toDoList} deleteTodo={deletePostToController} advance={advanceTodo} />
 
-                    <form>
-                    <button onClick={getPostToController}>add ToDo</button>
+                    <form onSubmit={getPostToController}>
+                    <button>add Task</button>
                     <input type="text" onChange={handleChange}/>
                     </form>
 
